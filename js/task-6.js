@@ -23,25 +23,24 @@ function createBoxes(amount) {
    mainBox.innerHTML = "";
   amount = Number(input.value);
   let size = 30;
+  if (amount <= 100 && amount > 1) {
   for (let i = 0; i <= amount; i++){
-    if (i >= 1 && i <= 100) {
       const box = document.createElement('div');
       size += 10;
-        box.style.width = `${size}px` ;
+      box.style.width = `${size}px`;
       box.style.height = `${size}px`;
       box.setAttribute("class", "newDiv");
       
-          function getRandomHexColor() {
-            return `#${Math.floor(Math.random() * 16777215)
-              .toString(16)
-              .padStart(6, 0)}`;
-    }
+      function getRandomHexColor() {
+        return `#${Math.floor(Math.random() * 16777215)
+          .toString(16)
+          .padStart(6, 0)}`;
+      }
       box.style.backgroundColor = getRandomHexColor();
       mainBox.append(box);
-      // mainBox.insertAdjacentHTML("beforeBegin", mainBox);
-    }
-    
-  }
+      // mainBox.insertAdjacentHTML("beforeBegin", mainBox);    
+  }  
+}
   input.value = "";
   console.log(mainBox);
 }
